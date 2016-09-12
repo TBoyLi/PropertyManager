@@ -1,0 +1,5 @@
+<resources>
+
+    <string name="app_name">物业管理</string>
+    <string name="ANDROID_GOOGLE_MAPS_API_KEY">AIzaSyD0BDOOnAAsCvMtui7ouHpdVKYZGERTKVM</string>
+</resources>

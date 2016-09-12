@@ -1,0 +1,27 @@
+{
+  "name": "PropertyManager",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "fetch-http-client": "0.0.7",
+    "react": "15.3.1",
+    "react-native": "0.32.0",
+    "react-native-barcodescanner": "^3.1.1",
+    "react-native-busy-indicator": "^1.0.9",
+    "react-native-checkbox": "^1.0.15",
+    "react-native-communications": "2.1.0",
+    "react-native-encryption-library": "^1.0.9",
+    "react-native-image-crop-picker": "^0.7.0",
+    "react-native-image-picker": "^0.21.5",
+    "react-native-maps": "^0.7.1",
+    "react-native-root-toast": "1.0.3",
+    "react-native-scrollable-tab-view": "^0.5.5",
+    "react-native-tab-navigator": "0.3.3",
+    "react-redux": "4.4.5",
+    "redux": "3.6.0",
+    "redux-thunk": "2.1.0 "
+  }
+}
