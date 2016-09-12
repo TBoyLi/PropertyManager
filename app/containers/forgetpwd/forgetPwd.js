@@ -47,11 +47,9 @@ class ForgetPwd extends React.Component{
           }
         });
       }else {
-        if (telphone.length < 11
-          || telphone.length > 0) {
-          Alert.alert('提示','手机格式不正确！');
-        }
-        if (code.length < 4 || code.length > 0) {
+        if (telphone.length < 11 && telphone.length > 0) {
+          Alert.alert('提示','手机号码不正确！');
+        }else {
           Alert.alert('提示','验证码不正确！');
         }
       }

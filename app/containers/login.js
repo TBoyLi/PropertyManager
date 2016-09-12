@@ -105,7 +105,8 @@ class Login extends React.Component{
                       style={styles.searchTextInput}
                       placeholder={'请输入用户名'}
                       onChangeText={(text)=>{username = text}}
-                      maxLength = {30}
+                      maxLength={30}
+                      keyboardType='numeric'
                       underlineColorAndroid={'transparent'}>
                   </TextInput>
               </View>
@@ -115,6 +116,7 @@ class Login extends React.Component{
                       placeholder={'请输入密码'}
                       onChangeText={(text)=>{password = text}}
                       maxLength = {30}
+                      secureTextEntry={true}
                       underlineColorAndroid={'transparent'}>
                   </TextInput>
               </View>

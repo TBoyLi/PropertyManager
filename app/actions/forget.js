@@ -5,9 +5,9 @@ import {HOST,LOGIN_ACTION} from  '../constants/Request.js';
 import { ToastShort } from '../util/ToastUtils.js';
 const client = new FetchHttpClient(HOST);
 
-export function doLogin(username,password){
+export function doForget(username,password){
      return dispatch => {
-        dispatch(performLogin());
+        dispatch(performForget());
         client.addMiddleware(form());
         client.addMiddleware(request => {
           request.options.headers['appkey'] = '8a9283a0567d5bea01567d5beaf90000';
@@ -22,34 +22,34 @@ export function doLogin(username,password){
         }).then((result)=>{
            if(result.code === '0'){
                //登录成功..
-               ToastShort('登录成功...');
-               dispatch(receiveLoginResult(result));
+               ToastShort('修改密码成功...');
+               dispatch(receiveForgetResult(result));
            }else{//异常
                ToastShort(result.msg);
                ToastShort(result.msg);
                dispatch(receiveLoginResultError(error));
            }
         }).catch((error) => {//没有登进服务器
-           ToastShort('登录失败，请重试...');
-           dispatch(receiveLoginResultError(error));
+           ToastShort('修改密码失败，请重试...');
+           dispatch(receiveForgetResultError(error));
         });
      }
 }
 
-function performLogin() {
+function performForget() {
     return {
         type: types.PERFORM_LOGIN_ACTION,
     }
 }
 
-function receiveLoginResult(result){
+function receiveForgetResult(result){
     return {
         type: types.RECEIVE_LOGIN_ACTION,
         data: result
     }
 
 }
-function receiveLoginResultError(result){
+function receiveForgetResultError(result){
   return {
       type: types.RECEIVE_LOGIN_ERROR_ACTION,
       data: result

@@ -11,7 +11,11 @@ import {
     Alert,
     TouchableOpacity
 } from 'react-native';
+import {connect} from 'react-redux';
+import {forget} from '../../actions/forget.js';
 import HeadView from '../../components/HeadView.js';
+
+
 
 class SetPwdSuccess extends Component{
   constructor(props) {
@@ -72,4 +76,11 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = SetPwdSuccess
+function mapStateToProps(state) {
+  const { forget } = state;
+  return {
+    forget
+  }
+}
+
+export default connect(mapStateToProps)(SetPwdSuccess);
