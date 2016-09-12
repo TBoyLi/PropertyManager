@@ -126,6 +126,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-update')
     compile project(':react-native-encryption-library')
     compile project(':react-native-image-crop-picker')
     compile project(':react-native-image-picker')
