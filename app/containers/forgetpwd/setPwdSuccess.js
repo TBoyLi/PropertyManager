@@ -11,11 +11,7 @@ import {
     Alert,
     TouchableOpacity
 } from 'react-native';
-import {connect} from 'react-redux';
-import {forget} from '../../actions/forget.js';
 import HeadView from '../../components/HeadView.js';
-
-
 
 class SetPwdSuccess extends Component{
   constructor(props) {
@@ -39,7 +35,7 @@ class SetPwdSuccess extends Component{
           leftImg= {require('../../imgs/back.png')}
           rightText='收藏'
           onLeftPress={this.onLeftPress.bind(this)}
-          leftButton={true}
+          leftButton={false}
           rightButton={false}
           navigator={this.props.navigator}/>
         <View style={styles.body}>
@@ -76,11 +72,4 @@ const styles = StyleSheet.create({
   }
 })
 
-function mapStateToProps(state) {
-  const { forget } = state;
-  return {
-    forget
-  }
-}
-
-export default connect(mapStateToProps)(SetPwdSuccess);
+module.exports = SetPwdSuccess

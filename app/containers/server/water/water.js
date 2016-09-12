@@ -19,7 +19,7 @@ import {
 }  from 'react-native';
 import React  from 'react';
 import CheckBox from 'react-native-checkbox';
-import {ToastLong} from '../../../util/ToastUtils.js';
+import {ToastShort,ToastLong} from '../../../util/ToastUtils.js';
 import HeadView from '../../../components/HeadView.js';
 import PayWater from './payWater.js';
 
@@ -51,8 +51,8 @@ class Water extends React.Component {
             }
           });
         }else {
-          this.setState({modalVisible: true});
-          // ToastLong('请输入水表户号……','bottom');
+          // this.setState({modalVisible: true});
+          ToastShort('请输入水表户号……','bottom');
         }
       }
     }
@@ -110,22 +110,19 @@ class Water extends React.Component {
                 transparent={true}
                 animationType='none'
                 onRequestClose={this._setModalVisible.bind(this,false)}>
-                {visible ?
-                  <TouchableOpacity
-                    key={'spinner'}
-                    onPress={this._setModalVisible.bind(this,false)}
-                    style={styles.modalContainer}>
-                    <View style={[styles.modalBackground]}>
-                      <View style={styles.modalLoading}>
-                        <Text>提示</Text>
-                        <Text style={styles.loadingText}>请输入水表户号</Text>
-                        <TouchableOpacity onPress={this._setModalVisible.bind(this,false)}>
-                          <Text>OK</Text>
-                        </TouchableOpacity>
-                      </View>
+                <TouchableOpacity
+                  onPress={this._setModalVisible.bind(this,false)}
+                  style={styles.modalContainer}>
+                  <View style={[styles.modalBackground]}>
+                    <View style={styles.modalLoading}>
+                      <Text>提示</Text>
+                      <Text style={styles.loadingText}>请输入水表户号</Text>
+                      <TouchableOpacity onPress={this._setModalVisible.bind(this,false)}>
+                        <Text>OK</Text>
+                      </TouchableOpacity>
                     </View>
-                  </TouchableOpacity> :
-                  <TouchableOpacity key={'spinner'} />}
+                  </View>
+                </TouchableOpacity>
               </Modal>
             </View>
         );

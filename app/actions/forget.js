@@ -1,21 +1,21 @@
 'use strict';
 import * as types from '../constants/actionTypes.js';
 import FetchHttpClient, { form,header } from 'fetch-http-client';
-import {HOST,LOGIN_ACTION} from  '../constants/Request.js';
+import {HOST,FOTGET_ACTION} from  '../constants/Request.js';
 import { ToastShort } from '../util/ToastUtils.js';
 const client = new FetchHttpClient(HOST);
 
-export function doForget(username,password){
+export function doForget(password,passwordConfirm){
      return dispatch => {
         dispatch(performForget());
         client.addMiddleware(form());
         client.addMiddleware(request => {
           request.options.headers['appkey'] = '8a9283a0567d5bea01567d5beaf90000';
         });
-        client.post(LOGIN_ACTION, {
+        client.post(FOTGET_ACTION, {
             form: {
-              username: username,
               password: password,
+              passwordConfirm:passwordConfirm,
            },
         }).then(response => {
            return response.json();
@@ -25,7 +25,6 @@ export function doForget(username,password){
                ToastShort('修改密码成功...');
                dispatch(receiveForgetResult(result));
            }else{//异常
-               ToastShort(result.msg);
                ToastShort(result.msg);
                dispatch(receiveLoginResultError(error));
            }
@@ -38,20 +37,20 @@ export function doForget(username,password){
 
 function performForget() {
     return {
-        type: types.PERFORM_LOGIN_ACTION,
+        type: types.PERFORM_FORGET_ACTION,
     }
 }
 
 function receiveForgetResult(result){
     return {
-        type: types.RECEIVE_LOGIN_ACTION,
+        type: types.RECEIVE_FORGET_ACTION,
         data: result
     }
 
 }
 function receiveForgetResultError(result){
   return {
-      type: types.RECEIVE_LOGIN_ERROR_ACTION,
+      type: types.RECEIVE_FORGET_ERROR_ACTION,
       data: result
   }
 }

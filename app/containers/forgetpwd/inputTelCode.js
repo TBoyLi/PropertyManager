@@ -22,6 +22,7 @@ class InputTelCode extends Component {
           telphone:void 0,
           verification_code:void 0,
           second:59,
+          timeOut:false
         };
     }
     onLeftPress(){
@@ -36,7 +37,7 @@ class InputTelCode extends Component {
         if(this.state.second == 1){
           clearInterval(this.timer);
           this.setState({
-            second:'验证码已过期'
+            timeOut:true
           });
         }
         this.setState({
@@ -76,6 +77,16 @@ class InputTelCode extends Component {
               navigator={this.props.navigator}/>
             <View style={styles.boby}>
               <Text>验证码已发送到{ this.state.telphone }</Text>
+            {this.state.timeOut ?
+              <View style={{flex:1,flexDirection:'row',alignItems:'center'}}>
+                <View style={{flex:1,height:45}}>
+                  <TextInput style={{flex:1,borderWidth:1,textAlign:'center'}} keyboardType='numeric' onChangeText={(text)=>{this.setState({verification_code:text})}}/>
+                </View>
+                <View style={{flexDirection:'row'}}>
+                  <Text>验证码已过期</Text>
+                </View>
+              </View>
+              :
               <View style={{flex:1,flexDirection:'row',alignItems:'center'}}>
                 <View style={{flex:1,height:45}}>
                   <TextInput style={{flex:1,borderWidth:1,textAlign:'center'}} keyboardType='numeric' onChangeText={(text)=>{this.setState({verification_code:text})}}/>
@@ -85,6 +96,8 @@ class InputTelCode extends Component {
                   <Text>S后重新发送</Text>
                 </View>
               </View>
+            }
+
             </View>
             <View style={styles.foot}>
               <TouchableOpacity onPress={this._submit.bind(this)}>
