@@ -56,7 +56,8 @@ React Native开发物业管理客户端
       Mac OS X:react-native run-ios or  xcode open project and run project
 
 四.运行效果
-  
+
+  ![](https://github.com/TBoyLi/PropertyManager/raw/master/app/screenshot/main.gif)
 
 五.打包方法
 
