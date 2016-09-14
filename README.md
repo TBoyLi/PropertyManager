@@ -57,6 +57,8 @@ React Native开发物业管理客户端
 
 四.运行效果
 
+仿微信主页左右滑动切换界面
+  
   ![](https://github.com/TBoyLi/PropertyManager/raw/master/app/screenshot/main.gif)
 
 五.打包方法
