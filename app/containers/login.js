@@ -24,6 +24,7 @@ import { ToastShort } from '../util/ToastUtils.js';
 import {doLogin} from '../actions/login.js';
 import Register from './register/Register';
 import Forget from './forgetpwd/forgetPwd.js';
+import Building from './where/building.js';
 import Main from './main.js';
 import {NativeModules} from 'react-native';
 var EncryptionModule = NativeModules.EncryptionModule;
@@ -75,8 +76,8 @@ class Login extends React.Component{
     //测试没有登陆也跳转，（正式把 ！ 去掉）
     if (!login.loading) {
       navigator.resetTo({
-        name:'Main',
-        component:Main
+        name:'Building',
+        component:Building
       });
     }
   }
