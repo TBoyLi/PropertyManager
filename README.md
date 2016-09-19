@@ -40,7 +40,7 @@ React Native开发物业管理客户端
 
   1.第一步
   
-    git@github.com:TBoyLi/PropertyManager.git
+    git clone git@github.com:TBoyLi/PropertyManager.git
   2.第二步
   
     cd PropertyManager
@@ -50,7 +50,7 @@ React Native开发物业管理客户端
   4.第四步
 
     1.运行Android版本
-      Mac OS X:react-native run-android  or Windows OS:react-native start and react-native run-android
+      Windows or Ubuntu:react-native run-android or Android Studio open project and run project
     2.运行iOS版本
       IOS目测部分还没适配，后面更新适配
       Mac OS X:react-native run-ios or  xcode open project and run project
