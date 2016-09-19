@@ -38,7 +38,9 @@ class Building extends React.Component {
     componentDidMount(){
       this.fetchData();
     }
-
+    onLeftPress(){
+      this.props.navigator.pop();
+    }
     fetchData(){
       let data = ['1栋','2栋','3栋','4栋','5栋','6栋','7栋','8栋','9栋','10栋','11栋','12栋','13栋','14栋','15栋','16栋','17栋','18栋','19栋','20栋']
       setTimeout(() => {
@@ -82,8 +84,9 @@ class Building extends React.Component {
                 leftText='返回'
                 leftImg= {require('../../imgs/back.png')}
                 rightText='收藏'
-                leftButton={false}
+                leftButton={true}
                 rightButton={false}
+                onLeftPress={this.onLeftPress.bind(this)}
                 navigator={this.props.navigator} />
                 {this.state.loading ?
                   <View style={[styles.container,{justifyContent:'center',alignItems:'center'}]}>
