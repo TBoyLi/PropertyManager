@@ -40,7 +40,7 @@ React Native开发物业管理客户端
 
   1.第一步
   
-    git@github.com:TBoyLi/PropertyManager.git
+    git clone git@github.com:TBoyLi/PropertyManager.git
   2.第二步
   
     cd PropertyManager
