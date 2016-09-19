@@ -21,7 +21,7 @@ import {
 }  from 'react-native';
 import React  from 'react';
 import HeadView from '../../components/HeadView.js';
-
+import Unit from './unit.js';
 class Building extends React.Component {
     // 构造
     constructor(props) {
@@ -31,15 +31,14 @@ class Building extends React.Component {
             rowHasChanged:(r1,r2) => r1 !== r2,
           }),
           loading:true,
-          build:'1栋'
+          build:'1栋',
+          show:false
         };
     }
     componentDidMount(){
       this.fetchData();
     }
-    onLeftPress(){
-        this.props.navigator.pop();
-    }
+
     fetchData(){
       let data = ['1栋','2栋','3栋','4栋','5栋','6栋','7栋','8栋','9栋','10栋','11栋','12栋','13栋','14栋','15栋','16栋','17栋','18栋','19栋','20栋']
       setTimeout(() => {
@@ -51,15 +50,30 @@ class Building extends React.Component {
         })
       }, 1500);
     }
-    renderRow(rowData, sectionID, rowID, highlightRow){
+    choosed(data){
+      this.setState({
+        build:data
+      });
+      this.props.navigator.push({
+        name:'Unit',
+        component:Unit,
+        params:{
+          build:data,
+        }
+      });
+    }
+    _renderRow(rowData, sectionID, rowID, highlightRow){
       return (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this.choosed.bind(this,rowData)}>
             <View style={styles.listItem}>
               <Text style={styles.listItemText}>{rowData}</Text>
               <View style={{height:1,backgroundColor:'#F0F0F0'}}/>
             </View>
           </TouchableOpacity>
       );
+    }
+    _onChangeText(){
+
     }
     render() {
         return (
@@ -68,8 +82,7 @@ class Building extends React.Component {
                 leftText='返回'
                 leftImg= {require('../../imgs/back.png')}
                 rightText='收藏'
-                onLeftPress={this.onLeftPress.bind(this)}
-                leftButton={true}
+                leftButton={false}
                 rightButton={false}
                 navigator={this.props.navigator} />
                 {this.state.loading ?
@@ -84,7 +97,7 @@ class Building extends React.Component {
                     <View style={styles.search}>
                       <View style={styles.searchIn}>
                         <Image source={require('../../imgs/search.png')} style={styles.searchImg}/>
-                        <TextInput style={styles.searchText} placeholder='搜索楼栋/单元／楼层' underlineColorAndroid='transparent'/>
+                      <TextInput style={styles.searchText} placeholder='搜索楼栋/单元/楼层' underlineColorAndroid='transparent' returnKeyType='search' onChangeText={this._onChangeText.bind(this)}/>
                       </View>
                     </View>
                     <View style={styles.choosed}>
@@ -93,7 +106,7 @@ class Building extends React.Component {
                     <ListView
                       removeClippedSubviews={true}
                       dataSource={this.state.dataSource}
-                      renderRow={this.renderRow}/>
+                      renderRow={this._renderRow.bind(this)}/>
                   </View>
                 }
             </View>
@@ -113,16 +126,16 @@ var styles = {
       marginTop:1
     },
     search:{
-      padding:10,
+      padding:15,
       justifyContent:'center',
       alignItems:'center',
+      flexDirection:'row'
     },
     searchIn:{
-      padding:0,
-      backgroundColor:'#F0F0F0',
-      borderRadius:50,
+      flex:1,
       flexDirection:'row',
-      borderBottomColor:'transparent',
+      backgroundColor:'#F0F0F0',
+      borderRadius:10,
       justifyContent:'center',
       alignItems:'center'
     },
@@ -130,7 +143,7 @@ var styles = {
       marginLeft:20
     },
     searchText:{
-      width:180,
+      width:160,
       height:40,
       color:'#AAAAAA'
     },
@@ -140,10 +153,11 @@ var styles = {
       padding:15
     },
     listItem:{
-      padding:15
+      paddingLeft:15,
+      paddingTop:10,
     },
     listItemText:{
-
+      paddingBottom:10
     }
 };
 

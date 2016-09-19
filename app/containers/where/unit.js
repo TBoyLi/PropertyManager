@@ -21,8 +21,9 @@ import {
 }  from 'react-native';
 import React  from 'react';
 import HeadView from '../../components/HeadView.js';
+import Room from './room.js';
 
-class Building extends React.Component {
+class Unit extends React.Component {
     // 构造
     constructor(props) {
         super(props);
@@ -31,18 +32,22 @@ class Building extends React.Component {
             rowHasChanged:(r1,r2) => r1 !== r2,
           }),
           loading:true,
-          build:'1栋',
+          build:'',
+          unit:'一单元',
           show:false
         };
     }
     componentDidMount(){
+      this.setState({
+        build:this.props.build
+      });
       this.fetchData();
     }
     onLeftPress(){
       this.props.navigator.pop();
     }
     fetchData(){
-      let data = ['1栋','2栋','3栋','4栋','5栋','6栋','7栋','8栋','9栋','10栋','11栋','12栋','13栋','14栋','15栋','16栋','17栋','18栋','19栋','20栋']
+      let data = ['一单元','二单元','三单元','四单元','五单元','六单元','七单元','八单元','九单元','十单元','十一单元','十二单元','十三单元','十四单元','十五单元','十六单元','十七单元','十八单元','十九单元','二十单元']
       setTimeout(() => {
         InteractionManager.runAfterInteractions(() => {
           this.setState({
@@ -54,9 +59,16 @@ class Building extends React.Component {
     }
     choosed(data){
       this.setState({
-        build:data
+        unit:data
       });
-
+      this.props.navigator.push({
+        name:'Room',
+        component:Room,
+        params:{
+          build:this.state.build,
+          unit:data,
+        }
+      });
     }
     _renderRow(rowData, sectionID, rowID, highlightRow){
       return (
@@ -94,11 +106,13 @@ class Building extends React.Component {
                     <View style={styles.search}>
                       <View style={styles.searchIn}>
                         <Image source={require('../../imgs/search.png')} style={styles.searchImg}/>
-                      <TextInput style={styles.searchText} placeholder='搜索楼栋/单元/楼层' underlineColorAndroid='transparent' returnKeyType='search' onChangeText={this._onChangeText.bind(this)}/>
+                        <TextInput style={styles.searchText} placeholder='搜索楼栋/单元/楼层' underlineColorAndroid='transparent' returnKeyType='search' onChangeText={this._onChangeText.bind(this)}/>
                       </View>
                     </View>
                     <View style={styles.choosed}>
-                      <Text>{this.state.build}</Text>
+                      <Text style={styles.build}>{this.state.build}</Text>
+                      <Image style={{marginLeft:10, marginRight:10}} source={require('../../imgs/JumpPage.png')}/>
+                      <Text style={styles.unit}>{this.state.unit}</Text>
                     </View>
                     <ListView
                       removeClippedSubviews={true}
@@ -145,8 +159,9 @@ var styles = {
       color:'#AAAAAA'
     },
     choosed:{
+      flexDirection:'row',
       backgroundColor:'#F0F0F0',
-      justifyContent:'center',
+      alignItems:'center',
       padding:15
     },
     listItem:{
@@ -155,7 +170,13 @@ var styles = {
     },
     listItemText:{
       paddingBottom:10
+    },
+    build:{
+      color:'#3DD1E0',
+    },
+    unit:{
+      color:'#3DD1E0'
     }
 };
 
-module.exports = Building;
+module.exports = Unit;
