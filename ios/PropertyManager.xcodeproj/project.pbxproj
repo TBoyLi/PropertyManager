@@ -26,6 +26,7 @@
 		FC99D93F8602494CB304219D /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F7B2A68B59444AB1273939 /* libAirMaps.a */; };
 		3E3268D8450242DC9B9F4995 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E350DBEED0497E87D38E10 /* libimageCropPicker.a */; };
 		B22C1490373047FA85163733 /* libRCTHotUpdate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E65272AD002943A8BF549C86 /* libRCTHotUpdate.a */; };
+		D2C2612CBB6C4D6CAD7443BB /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30707A8525994B8CA79AF999 /* libRCTActionSheet.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,8 @@
 		A3E350DBEED0497E87D38E10 /* libimageCropPicker.a */ = {isa = PBXFileReference; name = "libimageCropPicker.a"; path = "libimageCropPicker.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		5EC5AB3B36284F658E60EEBE /* RCTHotUpdate.xcodeproj */ = {isa = PBXFileReference; name = "RCTHotUpdate.xcodeproj"; path = "../node_modules/react-native-update/ios/RCTHotUpdate.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		E65272AD002943A8BF549C86 /* libRCTHotUpdate.a */ = {isa = PBXFileReference; name = "libRCTHotUpdate.a"; path = "libRCTHotUpdate.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		D4F99F5425B24F9F8A472A62 /* EncryptionDemo.xcodeproj */ = {isa = PBXFileReference; name = "EncryptionDemo.xcodeproj"; path = "../node_modules/react-native-encryption-library/EncryptionDemo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		30707A8525994B8CA79AF999 /* libRCTActionSheet.a */ = {isa = PBXFileReference; name = "libRCTActionSheet.a"; path = "libRCTActionSheet.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,7 @@
 				FC99D93F8602494CB304219D /* libAirMaps.a in Frameworks */,
 				3E3268D8450242DC9B9F4995 /* libimageCropPicker.a in Frameworks */,
 				B22C1490373047FA85163733 /* libRCTHotUpdate.a in Frameworks */,
+				D2C2612CBB6C4D6CAD7443BB /* libRCTActionSheet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +297,7 @@
 				8701411E421347E1B615CCCB /* AirMaps.xcodeproj */,
 				FFEC0885A8A648038D96C2F3 /* imageCropPicker.xcodeproj */,
 				5EC5AB3B36284F658E60EEBE /* RCTHotUpdate.xcodeproj */,
+				D4F99F5425B24F9F8A472A62 /* EncryptionDemo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -611,6 +616,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -627,6 +633,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PropertyManager.app/PropertyManager";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -648,6 +655,7 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-update/ios/RCTHotUpdate/**",
+					"$(SRCROOT)/../node_modules/react-native-encryption-library/EncryptionDemo",
 				);
 				INFOPLIST_FILE = "PropertyManager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -672,6 +680,7 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-update/ios/RCTHotUpdate/**",
+					"$(SRCROOT)/../node_modules/react-native-encryption-library/EncryptionDemo",
 				);
 				INFOPLIST_FILE = "PropertyManager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -726,6 +735,7 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-update/ios/RCTHotUpdate/**",
+					"$(SRCROOT)/../node_modules/react-native-encryption-library/EncryptionDemo",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -770,6 +780,7 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-update/ios/RCTHotUpdate/**",
+					"$(SRCROOT)/../node_modules/react-native-encryption-library/EncryptionDemo",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
