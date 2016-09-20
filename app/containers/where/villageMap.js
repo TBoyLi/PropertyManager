@@ -13,55 +13,28 @@ import {
     View,
     TouchableHighlight,
     Image,
+    WebView,
     AsyncStorage
 }  from 'react-native';
 import React  from 'react';
 var Geolocation = require('Geolocation');
 import KeyUrl from '../../constants/key.js';
 import HeadView from '../../components/HeadView.js';
+import Building from './building.js';
 
 class VillageMap extends React.Component {
     // 构造
     constructor(props) {
         super(props);
         this.state =  {
-
+          initialPosition: 'unknown',
         };
     }
     onLeftPress(){
         this.props.navigator.pop();
     }
-    _doGetData(){
-      var that = this;
-      Util.getJSON(url, function(data){
-        if(data.status && data.info === 'OK'){
-          var count = data.pois.length > 10? 10: data.pois.length;
-          that._addStorage(data);
-          that.setState({
-            list: data.pois,
-            count: count
-          });
-        }else{
-          alert('没有查询到相应的数据');
-        }
-      });
-    }
     componentDidMount(){
-      Geolocation.getCurrentPosition(function(data){
-        var lnglat = data.coords.longitude + ',' + data.coords.latitude;
-        AsyncStorage.setItem('pos', lnglat);
-        var url = KeyUrl.searchURL + 'key=' + KeyUrl.WEB_KEY + '&keywords='
-          + '小区' + '&extensions=base';
-        if(_GEO_OPEN){
-          url += '&location=' + lnglat;
-          // this._doGetData(url);
-        }else{
-          url += '&location=' + _GEO_TEST_POS;
-          // this._doGetData(url);
-        }
-      }, function(err){
-        alert('定位失败，请重新开启应用定位');
-      });
+
     }
     render() {
         return (
@@ -77,7 +50,6 @@ class VillageMap extends React.Component {
             </View>
         );
     }
-
 };
 
 var styles = {
