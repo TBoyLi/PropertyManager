@@ -9,6 +9,7 @@
     "fetch-http-client": "0.0.7",
     "react": "15.3.1",
     "react-native": "0.32.0",
+    "react-native-amap-location": "0.0.4",
     "react-native-barcodescanner": "^3.1.1",
     "react-native-busy-indicator": "^1.0.9",
     "react-native-checkbox": "^1.0.15",

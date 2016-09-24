@@ -11,3 +11,5 @@ include ':react-native-barcodescanner'
 project(':react-native-barcodescanner').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-barcodescanner/android')
 include ':react-native-encryption-library'
 project(':react-native-encryption-library').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-encryption-library/android')
+include ':reactamaplocation'
+project(':reactamaplocation').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-amap-location')
